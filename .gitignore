@@ -1,0 +1,13 @@
+*.aux
+*.bib
+*.glo
+*.hd
+*.idx
+*.ins
+*.log
+*.out
+leindisc.pdf
+leindisc.sty
+*.toc
+build/*
+*.exa
