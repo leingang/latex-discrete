@@ -176,7 +176,18 @@ and the derived files           leindisc.sty
 %
 % \section{Introduction}
 %
+% This package is for typesetting documents for discrete mathematics.
+% The style is based on Scheinermman, but it can be easily overwritten.
+% 
 % \section{Installation}
+% 
+% If you have the github repository, and a \TeX-live installation,
+% type this at the command line: 
+%
+% \verb|$ l3build leindisc install|
+%
+% This should install the package in a place that your TeX installation
+% can find it and also that you can write to.  
 %
 % \section{Usage/Implementation}
 %
@@ -184,9 +195,148 @@ and the derived files           leindisc.sty
 %<*package>
 %    \end{macrocode}
 %
+% Helper packages.
+%    \begin{macrocode}
+\RequirePackage{amsmath}
+\RequirePackage{amsfonts}
+\RequirePackage{mathtools}
+%    \end{macrocode}
+%
+% \subsection{Constants}
+%
+% \begin{macro}{\Z}
+% \begin{macro}{\Q}
+% \begin{macro}{\R}
+% Integers, rational numbers, real numbers
+% \begin{example}
+% \begin{examplecode}
+%    $\Z$, $\Q$, $\R$
+% \end{examplecode}
+% \end{example}
+%    \begin{macrocode}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+%
+%
+% \subsection{Relations}
+%
+% \begin{macro}{\divides}
+%    \begin{macrocode}
+\newcommand{\divides}{\mathrel{|}}
+%    \end{macrocode}
+% \end{macro}
+%
+% \subsection{Boolean algebra}
+%
+% \begin{macro}{\ltrue}
+% \begin{macro}{\false}
+% Logical true and false.
+% \begin{example}
+% \begin{examplecode}
+%    $\begin{aligned}
+%        x \land \lnot x &= \lfalse \\
+%        x \lor \lnot x &= \ltrue
+%    \end{aligned}$
+% \end{examplecode}
+% \caption{Boolean algebra examples}
+% \label{exam-bool}
+% \end{example}
 %
 %    \begin{macrocode}
-\usepackage{mathtools}
+\newcommand{\ltrue}{\textsc{true}}
+\newcommand{\lfalse}{\textsc{false}}
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
+% 
+% \begin{macro}{\limplies}
+% \begin{macro}{\lseilpmi}
+% \begin{macro}{\liff}
+% Boolean algebra operations for implies, is-implied-by, 
+% and if-and-only-if.
+% Note that \cn{land} ($\land$) and \cn{lor} ($\lor$) 
+% are already defined by another package.
+% \begin{example}
+% \begin{examplecode}
+%    $\begin{aligned}
+%        p \limplies q &= \lnot p \lor q \\
+%        p \lseilpmi q &= q \limplies p \\
+%        p \liff q     &= (p \limplies q) \land (q \limplies p)
+%    \end{aligned}$
+% \end{examplecode}
+% \end{example}
+%    \begin{macrocode}
+\newcommand{\limplies}{\rightarrow}
+\newcommand{\lseilpmi}{\leftarrow}
+\newcommand{\liff}{\leftrightarrow}
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+%
+% \subsection{Set theory}
+%
+% \begin{macro}{\set}
+% \begin{macro}{\setst}
+% The \cn{set} command encloses a set with ``roster'' notation.
+% The \cn{set} command encloses a set with ``set-builder'' notation
+% \begin{example}
+% \begin{examplecode}
+%    $A = \set{1,2,3}$
+% \end{examplecode}
+% \begin{examplecode}
+%    $A = \setst{x}{2 \divides x}$
+% \end{examplecode}
+% \caption{Constructing sets with roster and set-builder notation}
+% \label{exam-bool}
+% \end{example}
+%    \begin{macrocode}
+\newcommand{\set}[1]{\left\{#1\right\}}
+\newcommand{\setst}[2]{\left\{#1 : #2 \right\}}
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
+%
+% \begin{macro}{\union}
+% \begin{macro}{\intersect}
+% \begin{macro}{\setdiff}
+% \begin{macro}{\symdiff}
+% The union, intersection, set difference, and symmetric difference operations.
+% \begin{example}
+% \begin{examplecode}
+%    $A \symdiff B = (A \setdiff B) \union (B \setdiff A) 
+%    = (A \union B) \setdiff (B \intersect A)$
+% \end{examplecode}
+% \end{example}
+%    \begin{macrocode}
+\newcommand{\intersect}{\cap}
+\newcommand{\union}{\cup}
+\newcommand{\setdiff}{-}
+\newcommand{\symdiff}{\mathbin{\triangle}}
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+%
+% \begin{macro}{\PowerSet}
+% The power set of a set
+% \begin{example}
+% \begin{examplecode}
+%    $\PowerSet{A} = \setst{B}{B \subseteq A}$
+% \end{examplecode}
+% \end{example}
+%    \begin{macrocode}
+\newcommand{\PowerSet}[1]{2^{#1}}
+%    \end{macrocode}
+% \end{macro}
+%
+%    \begin{macrocode}
 %</package>
 %    \end{macrocode}
 %
