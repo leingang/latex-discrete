@@ -1,3 +1,6 @@
+leindisc.pdf
+leindisc.sty
+build/*
 *.aux
 *.bib
 *.glo
@@ -6,8 +9,7 @@
 *.ins
 *.log
 *.out
-leindisc.pdf
-leindisc.sty
 *.toc
-build/*
 *.exa
+*.ilg
+*.ind
