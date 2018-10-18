@@ -13,3 +13,4 @@ build/*
 *.exa
 *.ilg
 *.ind
+leindisc.synctex.gz
