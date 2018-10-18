@@ -1,0 +1,10 @@
+\input regression-test.tex
+\documentclass{article}
+\newcommand{\R}{\mathbf{R}}
+\usepackage{leindisc}
+\begin{document}
+\setbox0=\hbox{$\R$}
+\START
+\showbox0
+\END
+\end{document}

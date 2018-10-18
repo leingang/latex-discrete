@@ -1,0 +1,171 @@
+%% leintex2e.sty
+%% My own personal style file, compatible with AMS-LaTeX2e
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{leintex2e}[1999/02/22 1.0 (MPL)]
+%% To use these macros, you need to load the packages
+%% amsmath (formatting macros), 
+%% amssymb (AMS symbols), 
+%% optional eucal (replaces that awful \cal)
+\RequirePackage{amsmath}
+\RequirePackage{amssymb}
+
+
+\ProcessOptions
+
+%% using the better-looking, phi, and emptyset
+\newcommand*\dumbepsilon{\epsilon}
+\newcommand*\dumbphi{\phi}
+\renewcommand*\epsilon{\varepsilon}
+\renewcommand*\phi{\varphi}
+\newcommand*\dumbemptyset{\emptyset}
+\renewcommand*\emptyset{\varnothing}
+
+%% Style by object type.  
+\newcommand*\ideal[1]{\mathfrak{#1}}
+\newcommand*\CycGrp[1]{{\left<#1\right>}}
+\newcommand*\LieAlg[1]{\mathfrak{#1}}
+\newcommand*\field[1]{\mathbb{#1}}
+\newcommand*\category[1]{\mathfrak{#1}}
+\newcommand*\sheaf[1]{\mathcal{#1}}
+\newcommand*\collection[1]{\mathcal{#1}}
+\newcommand*\conjclass[1]{{\mathcal{#1}}}
+
+%% Common Blackboard-Bold letters
+\newcommand*\N{{\field N}}
+\newcommand*\Z{{\field Z}}
+\newcommand*\R{{\field R}}
+\providecommand*{\C}{{\field C}}
+%\newcommand*{\C}{{\field C}}
+\newcommand*\Q{{\field Q}}
+
+
+
+%% Undefine some foreign language CS's.  I'd rather have the one-letter CS
+%% for math
+%\edef\DanishO{\O}	% I don't plan to write in Danish
+%\edef\PolishL{\L}       	% or Polish
+\let\ErosH=\H         	% or Hungarian
+%\edef\acircle{\aa}	% or whatever this language is	
+%\edef\Acircle{\AA}
+\let\dotlessi=\i						
+%\edef\Paragraph{\P}
+
+%% enclosed thingies
+\newcommand*\set[1]{\left\{ #1 \right\}}
+% ``set such that''; puts in a vertical bar of the right height
+\newcommand*\setst[2]% 
+	{\left\{\,#1\vphantom{#2} \;\right|\left. #2 \vphantom{#1}\,\right\}}
+\newcommand*\tset[1]{\{ #1 \}}	% in text, we don't want {} to grow
+\newcommand*\norm[1]{\left\Vert #1 \right\Vert}
+\newcommand*\abs[1]{\left\vert #1 \right\vert}
+\newcommand*\paren[1]{\left( #1 \right)}
+\newcommand*\bracket[1]{\left[ #1 \right]}
+\newcommand*\anglebr[1]{\left< #1 \right>}
+\newcommand*\dbrack[1]{\left[\!\left[#1\right]\!\right]}
+\newcommand*\pbrack[1]{\left\{ #1 \right\}}
+
+%% roman abbreviations.  Please alphabetize when editing!
+\newcommand*\Ad{\operatorname{Ad}\nolimits}
+\newcommand*\ad{\operatorname{ad}\nolimits}
+\newcommand*\Ann{\operatorname{Ann}\nolimits}
+\newcommand*\Aut{\operatorname{Aut}\nolimits}
+\newcommand*\arcsec{\operatorname{arcsec}\nolimits}
+\newcommand*\Ass{\operatorname{Ass}\nolimits}
+\newcommand*\bas{{\operatorname{bas}\nolimits}}
+\newcommand*\coker{\operatorname{coker}\nolimits}
+\newcommand*\Char{\operatorname{char}\nolimits}	%\char is special!
+\newcommand*\Der{\operatorname{Der}\nolimits}
+\newcommand*\Diff{\operatorname{Diff}\nolimits}
+\newcommand*\diag{\operatorname{diag}\nolimits}
+\newcommand*\diam{\operatorname{diam}\nolimits}
+\newcommand*\End{\operatorname{End}\nolimits}
+\newcommand*\ev{\operatorname{ev}\nolimits}
+\newcommand*\Ext{\operatorname{Ext}\nolimits}
+\newcommand*\Fr{\operatorname{Fr}\nolimits}
+\newcommand*\Gal{\operatorname{Gal}\nolimits}
+\newcommand*\Hol{\operatorname{Hol}\nolimits}
+\newcommand*\Hom{\operatorname{Hom}}
+\newcommand*\hor{{\operatorname{hor}}}
+\newcommand*\height{\operatorname{ht}}
+\newcommand*\Id{\operatorname{Id}}
+\renewcommand*\Im{\operatorname{Im}}
+\newcommand*\im{\operatorname{im}\nolimits}
+\newcommand*\Ind{\operatorname{Ind}\nolimits}
+\newcommand*\Jrad{\operatorname{Jrad}\nolimits}
+\newcommand*\Lie{\operatorname{Lie}\nolimits}
+\newcommand*\Map{\operatorname{Map}\nolimits}
+\newcommand*\mult{\operatorname{mult}\nolimits}
+\newcommand*\Mult{\operatorname{Mult}}
+\newcommand*\nilrad{\operatorname{nil rad}}
+\newcommand*\pr{\operatorname{pr}}
+\newcommand*\Pic{\operatorname{Pic}}
+\renewcommand*\Re{\operatorname{Re}}
+\newcommand*\Res{\operatorname{Res}}
+\newcommand*\rk{\operatorname{rk}}
+\newcommand*\Supp{\operatorname{Supp}}
+\newcommand*\Spec{\operatorname{Spec}}
+\newcommand*\sgn{\operatorname{sgn}}
+\newcommand*\Tor{\operatorname{Tor}}
+\newcommand*\tr{\operatorname{tr}}
+\newcommand*\trdeg{\operatorname{tr.\ deg}\nolimits}
+\newcommand*\Tr{\operatorname{Tr}\nolimits}
+
+%% mnemonics
+\newcommand*\from{\colon}
+\newcommand*\dpart[2]{\frac{\partial #1}{\partial #2}}
+\newcommand*\ddpart[3]{\frac{\partial^2 #1}{\partial #2\,\partial #3}}
+\newcommand*\dbyd[2]{\frac{\partial #1}{\partial #2}}
+\newcommand*\dtot[2]{\frac{d #1}{d #2}}
+\newcommand*\dfunc[2]{\mathchoice{\frac{\delta#1}{\delta#2}}%
+{\frac{\delta#1}{\delta #2}}{\delta#1/\delta#2}{\delta#1/\delta#2}}
+\newcommand*\inv{^{-1}}
+\newcommand*\comp{\mathbin{\raise.29ex\hbox{$\scriptscriptstyle\circ$}}}
+\newcommand*\contr{\mathbin{\raise.29ex\hbox{$\lrcorner$}}}
+\newcommand*\bigdot{{\mathbin{\raise.29ex\hbox{$\scriptscriptstyle{\bullet}$}}}}
+\newcommand*\blank{\makebox[0.8em]{$\cdot$}}
+
+\newcommand*\iso{\cong}
+\newcommand*\homotopic{\simeq}
+\newcommand*\tensor{\otimes}
+\newcommand*\twiddle{\sim}
+\newcommand*\wiggle{\twiddle}
+\newcommand*\defeq{\overset{\text{\rm def}}{=}}
+\newcommand*\intersect{\cap}
+\newcommand*\union{\cup}
+\newcommand*\bigunion{\bigcup}
+\newcommand*\bigintersect{\bigcap}
+\newcommand*\longto{\longrightarrow}
+\newcommand*\SymGrp{{\mathfrak S}}
+\newcommand*\AltGrp{{\mathfrak A}}
+
+% here's a new accent.
+\newcommand*\becircled{\mathaccent"7017 }
+
+% clap and math versions of rlap, llap, and clap
+% See http://math.arizona.edu/~aprl/publications/mathclap/
+\def\clap#1{\hbox to 0pt{\hss#1\hss}} 
+\def\mathllap{\mathpalette\mathllapinternal} 
+\def\mathrlap{\mathpalette\mathrlapinternal} 
+\def\mathclap{\mathpalette\mathclapinternal} 
+\def\mathllapinternal#1#2{% 
+\llap{$\mathsurround=0pt#1{#2}$}} 
+\def\mathrlapinternal#1#2{% 
+\rlap{$\mathsurround=0pt#1{#2}$}} 
+\def\mathclapinternal#1#2{% 
+\clap{$\mathsurround=0pt#1{#2}$}} 
+
+
+
+% that's my name; don't wear it out!  :-)
+\newcommand*\LeinTeX{\textsc{Lein}\TeX}
+
+
+
+
+
+
+
+
+
+
+
