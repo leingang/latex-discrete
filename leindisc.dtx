@@ -207,16 +207,21 @@ and the derived files           leindisc.sty
 % \begin{macro}{\Z}
 % \begin{macro}{\Q}
 % \begin{macro}{\R}
-% Integers, rational numbers, real numbers
+% Integers, rational numbers, real numbers.
+%
+% Note: Some of my older style files have already defined these macros.
+% So we use \cn{providecommand} instead of \cn{newcommand} to avoid an error.
+% The consequence is that if the macros are already defined \emph{and do 
+% something else}, they will not be changed.  
 % \begin{example}
 % \begin{examplecode}
 %    $\Z$, $\Q$, $\R$
 % \end{examplecode}
 % \end{example}
 %    \begin{macrocode}
-\newcommand{\Z}{\mathbb{Z}}
-\newcommand{\Q}{\mathbb{Q}}
-\newcommand{\R}{\mathbb{R}}
+\providecommand{\Z}{\mathbb{Z}}
+\providecommand{\Q}{\mathbb{Q}}
+\providecommand{\R}{\mathbb{R}}
 %    \end{macrocode}
 % \end{macro}
 % \end{macro}
@@ -285,6 +290,12 @@ and the derived files           leindisc.sty
 % \begin{macro}{\setst}
 % The \cn{set} command encloses a set with ``roster'' notation.
 % The \cn{set} command encloses a set with ``set-builder'' notation
+%
+% Note: See the note above for \cn{\R} etc.  We use \cn{providecommand}
+% here to avoid an error caused by re-defining a command without
+% \cn{renewcommand}.  There could be some unintended consequences.
+% if you have \cn{set} and \cn{setst} macros that do something else.
+%
 % \begin{example}
 % \begin{examplecode}
 %    $A = \set{1,2,3}$
@@ -296,8 +307,8 @@ and the derived files           leindisc.sty
 % \label{exam-bool}
 % \end{example}
 %    \begin{macrocode}
-\newcommand{\set}[1]{\left\{#1\right\}}
-\newcommand{\setst}[2]{\left\{#1 : #2 \right\}}
+\providecommand{\set}[1]{\left\{#1\right\}}
+\providecommand{\setst}[2]{\left\{#1 : #2 \right\}}
 %    \end{macrocode}
 % \end{macro}
 % \end{macro}
@@ -314,8 +325,9 @@ and the derived files           leindisc.sty
 % \end{examplecode}
 % \end{example}
 %    \begin{macrocode}
-\newcommand{\intersect}{\cap}
-\newcommand{\union}{\cup}
+\providecommand{\intersect}{\cap}
+\providecommand{\intersect}{\cap}
+\providecommand{\union}{\cup}
 \newcommand{\setdiff}{-}
 \newcommand{\symdiff}{\mathbin{\triangle}}
 %    \end{macrocode}
