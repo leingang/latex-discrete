@@ -14,3 +14,4 @@ build/*
 *.ilg
 *.ind
 leindisc.synctex.gz
+.terminal.term-0.term
