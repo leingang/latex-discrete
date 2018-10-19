@@ -14,7 +14,7 @@ If your TeX installation doesn't have `l3build`, try instead:
 
     $ texlua build.lua install --full
     
-If the `--full` option isn't recognize, update your TeX distribution.  Or, skip
+If the `--full` option isn't recognized, update your TeX distribution.  Or, skip
 it and install the documentation separately:
 
     $ cp -r build/doc/* `kpsewhich --var-value TEXMFHOME`/doc 
