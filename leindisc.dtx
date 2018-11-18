@@ -58,7 +58,6 @@ and the derived files           leindisc.sty
 \fi
 %</internal>
 %<*package>
-% Keep version numbering separate from CDS.tex version numbering
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{leindisc}[2018/10/10 v0.2 Discrete Math macros]
 %</package>
@@ -184,7 +183,7 @@ and the derived files           leindisc.sty
 % If you have the github repository, and a \TeX-live installation,
 % type this at the command line: 
 %
-% \verb|$ l3build leindisc install|
+% \verb|$ l3build install|
 %
 % This should install the package in a place that your TeX installation
 % can find it and also that you can write to.  
@@ -367,6 +366,55 @@ and the derived files           leindisc.sty
 %    \begin{macrocode}
 %</package>
 %    \end{macrocode}
+%
+%
+% \subsection{Functions}
+%
+% \begin{macro}{\comp}
+% \changes{v0.3}{2018/11/19}{Added this macro}
+% Composition of functions.
+%    \begin{macrocode}
+\newcommand{\comp}{\mathrel{\raisebox{0.175ex}{$\scriptstyle\circ$}}}
+%    \end{macrocode}
+% \end{macro}
+% \begin{macro}{\from}
+% \changes{v0.3}{2018/11/19}{Added this macro}
+% Semantic replacement for \cn{colon} between a function's name and its domain.
+%    \begin{macrocode}
+\newcommand{\from}{\colon}
+%    \end{macrocode}
+% \end{macro}
+% \begin{macro}{\IdentityFunction}
+% \changes{v0.3}{2018/11/19}{Added this macro}
+% The identity function on a set.
+% The optional argument gives the name of the set.
+%    \begin{macrocode}
+\newcommand{\IdentityFunction}[1][\relax]{%
+    \mathord{\mathrm{id}}\ifx#1\relax\else_{#1}\fi
+}
+%    \end{macrocode}
+% \end{macro}
+% \begin{example}
+%    \begin{examplecode}
+%        If $f \from \Z \to \Z$ is invertible,
+%        then $f \comp f^{-1} = \IdentityFunction[\Z]$.
+%    \end{examplecode}
+% \end{example}
+%
+%
+% \subsection{Permutations}
+%
+% \begin{macro}{\sign}
+% The sign of a permutation.
+% \begin{example}
+%    \begin{examplecode}
+%        $\sgn\iota = 1$
+%    \end{examplecode}
+% \end{example}
+%    \begin{macrocode}
+\newcommand{\sgn}{\operatorname{sgn}}
+%    \end{macrocode}
+% \end{macro}
 %
 %
 %% \bibliographystyle{abbrv}

@@ -1,0 +1,10 @@
+\input regression-test.tex
+\documentclass{article}
+\usepackage{leindisc}
+\begin{document}
+\START
+If $f \from \Z \to \Z$ is invertible, 
+then $f \comp f^{-1} = \IdentityFunction[\Z]$.
+\END
+\end{document}
+\endinput
