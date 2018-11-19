@@ -1,0 +1,9 @@
+\input regression-test.tex
+\documentclass{article}
+\usepackage{leindisc}
+\begin{document}
+\setbox0=\hbox{$\mathbb{N}$}
+\START
+\showbox0
+\END
+\end{document}
