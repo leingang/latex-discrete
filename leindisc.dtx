@@ -295,9 +295,16 @@ and the derived files           leindisc.sty
 % The \cn{set} command encloses a set with ``set-builder'' notation
 %
 % Note: See the note above for \cn{\R} etc.  We use \cn{providecommand}
-% here to avoid an error caused by re-defining a command without
-% \cn{renewcommand}.  There could be some unintended consequences.
-% if you have \cn{set} and \cn{setst} macros that do something else.
+% here in the definition of \cn{set} to avoid an error caused by 
+% re-defining a command without \cn{renewcommand}.  There could be some 
+% unintended consequences if you have a \cn{set} macro that does 
+% something else.
+%
+% For \cn{setst}, we really do want to overwrite any existing definition.
+% This is because I defined \cn{setst} in the \pkg{leintex2e} package
+% a long time ago, and it's included in the nge bundle of classes.
+% The pattern below allows for quick and dirty “define this if it doesn't 
+% already exist, and redefine it if it already does.”
 %
 % \begin{example}
 % \begin{examplecode}
@@ -311,7 +318,8 @@ and the derived files           leindisc.sty
 % \end{example}
 %    \begin{macrocode}
 \providecommand{\set}[1]{\left\{#1\right\}}
-\providecommand{\setst}[2]{\left\{#1 : #2 \right\}}
+\let\setst\outer
+\renewcommand{\setst}[2]{\left\{#1 : #2 \right\}}
 %    \end{macrocode}
 % \end{macro}
 % \end{macro}
@@ -378,14 +386,14 @@ and the derived files           leindisc.sty
 % \changes{v0.3}{2018/11/19}{Added this macro}
 % Composition of functions.
 %    \begin{macrocode}
-\newcommand{\comp}{\mathrel{\raisebox{0.175ex}{$\scriptstyle\circ$}}}
+\providecommand{\comp}{\mathrel{\raisebox{0.175ex}{$\scriptstyle\circ$}}}
 %    \end{macrocode}
 % \end{macro}
 % \begin{macro}{\from}
 % \changes{v0.3}{2018/11/19}{Added this macro}
 % Semantic replacement for \cn{colon} between a function's name and its domain.
 %    \begin{macrocode}
-\newcommand{\from}{\colon}
+\providecommand{\from}{\colon}
 %    \end{macrocode}
 % \end{macro}
 % \begin{macro}{\IdentityFunction}
@@ -416,7 +424,7 @@ and the derived files           leindisc.sty
 %    \end{examplecode}
 % \end{example}
 %    \begin{macrocode}
-\newcommand{\sgn}{\operatorname{sgn}}
+\providecommand{\sgn}{\operatorname{sgn}}
 %    \end{macrocode}
 % \end{macro}
 %
