@@ -195,9 +195,11 @@ and the derived files           leindisc.sty
 %    \end{macrocode}
 %
 % Helper packages.
+% \changes{unreleased}{2019/02/25}{Added the \env{amssymb} package}
 %    \begin{macrocode}
 \RequirePackage{amsmath}
 \RequirePackage{amsfonts}
+\RequirePackage{amssymb}
 \RequirePackage{mathtools}
 %    \end{macrocode}
 %
@@ -239,7 +241,14 @@ and the derived files           leindisc.sty
 %    \end{macrocode}
 % \end{macro}
 %
-% \subsection{Boolean algebra}
+% \begin{macro}{\ndivides}
+% \changes{unreleased}{2019/02/25}{Added}
+%    \begin{macrocode}
+\newcommand{\ndivides}{\mathrel{\nmid}}
+%    \end{macrocode}
+% \end{macro}
+  
+  % \subsection{Boolean algebra}
 %
 % \begin{macro}{\ltrue}
 % \begin{macro}{\false}
