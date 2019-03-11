@@ -257,7 +257,8 @@ and the derived files           leindisc.sty
 % \begin{examplecode}
 %    $\begin{aligned}
 %        x \land \lnot x &= \lfalse \\
-%        x \lor \lnot x &= \ltrue
+%        x \lor \lnot x &= \ltrue \\
+%        x \lnand x &= \lnot x
 %    \end{aligned}$
 % \end{examplecode}
 % \caption{Boolean algebra examples}
@@ -271,6 +272,9 @@ and the derived files           leindisc.sty
 % \end{macro}
 % \end{macro}
 % 
+% \begin{macro}{\lnand}
+% \begin{macro}{\lxor}
+% \changes{unreleased}{2019/03/10}{Added \cn{lnand} and \cn{lxor}}
 % \begin{macro}{\limplies}
 % \begin{macro}{\lseilpmi}
 % \begin{macro}{\liff}
@@ -283,7 +287,8 @@ and the derived files           leindisc.sty
 %    $\begin{aligned}
 %        p \limplies q &= \lnot p \lor q \\
 %        p \lseilpmi q &= q \limplies p \\
-%        p \liff q     &= (p \limplies q) \land (q \limplies p)
+%        p \liff q     &= (p \limplies q) \land (q \limplies p)\\
+%        p \lxor q     &= (p \lor q) \land \lnot (p \land q)
 %    \end{aligned}$
 % \end{examplecode}
 % \end{example}
@@ -291,7 +296,11 @@ and the derived files           leindisc.sty
 \newcommand{\limplies}{\rightarrow}
 \newcommand{\lseilpmi}{\leftarrow}
 \newcommand{\liff}{\leftrightarrow}
+\newcommand{\lnand}{\barwedge}
+\newcommand{\lxor}{\veebar}
 %    \end{macrocode}
+% \end{macro}
+% \end{macro}
 % \end{macro}
 % \end{macro}
 % \end{macro}
