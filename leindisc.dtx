@@ -365,6 +365,15 @@ and the derived files           leindisc.sty
 % \end{macro}
 % \end{macro}
 %
+% Scheinermman uses the minus sign for set difference.
+% I prefer the backslash but I don't want to confuse students (more).
+% \changes{unreleased}{2019/03/28}{Alias \cn{setminus} to \cn{setdiff}}
+%    \begin{macrocode}
+\let\origsetminus\setminus
+\renewcommand{\setminus}{\setdiff}
+%    \end{macrocode}
+%
+%
 % \begin{macro}{\PowerSet}
 % The power set of a set
 % \begin{example}
