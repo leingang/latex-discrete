@@ -455,6 +455,21 @@ and the derived files           leindisc.sty
 %    \end{macrocode}
 % \end{macro}
 %
+% \subsection{Integer Division}
+%
+% \begin{macro}{\idiv}
+% \changes{unreleased}{2019/05/08}{Added this macro}
+% Integer division.
+% \begin{example}
+%    \begin{examplecode}
+%        $-17 \idiv 4 = -5$
+%    \end{examplecode}
+% \end{example}
+%    \begin{macrocode}
+\providecommand{\idiv}{\mathbin{\text{div}}}
+%    \end{macrocode}
+
+% \end{macro}
 %
 %% \bibliographystyle{abbrv}
 %% \bibliography{\jobname}
