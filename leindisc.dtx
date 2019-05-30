@@ -452,6 +452,20 @@ and the derived files           leindisc.sty
 %    \end{macrocode}
 % \end{macro}
 %
+% \begin{macro}{\im}
+% \changes{unreleased}{2019/05/30}{Added this command}
+% The image of a function.
+% \begin{example}
+% \begin{examplecode}
+%    $\im f = \set{4,5,6}$
+% \end{examplecode}
+% \end{example}
+%    \begin{macrocode}
+\newcommand{\im}[1]{\operatorname{im}#1}
+%    \end{macrocode}
+% \end{macro}
+%
+%
 % \begin{macro}{\comp}
 % \changes{v0.3}{2018/11/19}{Added this command}
 % Composition of functions.
