@@ -59,7 +59,7 @@ and the derived files           leindisc.sty
 %</internal>
 %<*package>
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{leindisc}[2018/10/10 v0.2 Discrete Math macros]
+\ProvidesPackage{leindisc}[2019/05/29 v0.4.0 Discrete Math macros]
 %</package>
 %<*driver>
 \documentclass{amsdtx}
@@ -195,7 +195,7 @@ and the derived files           leindisc.sty
 %    \end{macrocode}
 %
 % Helper packages.
-% \changes{unreleased}{2019/02/25}{Added the \env{amssymb} package}
+% \changes{v0.4.0}{2019/02/25}{Added the \env{amssymb} package}
 %    \begin{macrocode}
 \RequirePackage{amsmath}
 \RequirePackage{amsfonts}
@@ -242,7 +242,7 @@ and the derived files           leindisc.sty
 % \end{macro}
 %
 % \begin{macro}{\ndivides}
-% \changes{unreleased}{2019/02/25}{Added}
+% \changes{v0.4.0}{2019/02/25}{Added}
 %    \begin{macrocode}
 \newcommand{\ndivides}{\mathrel{\nmid}}
 %    \end{macrocode}
@@ -274,7 +274,7 @@ and the derived files           leindisc.sty
 % 
 % \begin{macro}{\lnand}
 % \begin{macro}{\lxor}
-% \changes{unreleased}{2019/03/10}{Added \cn{lnand} and \cn{lxor}}
+% \changes{v0.4.0}{2019/03/10}{Added \cn{lnand} and \cn{lxor}}
 % \begin{macro}{\limplies}
 % \begin{macro}{\lseilpmi}
 % \begin{macro}{\liff}
@@ -367,7 +367,7 @@ and the derived files           leindisc.sty
 % that is not in $B$.
 % Scheinermman uses the minus sign for set difference.
 % I prefer the backslash but I don't want to confuse students (more).
-% \changes{unreleased}{2019/03/28}{Alias \cn{setminus} to \cn{setdiff}}
+% \changes{v0.4.0}{2019/03/28}{Alias \cn{setminus} to \cn{setdiff}}
 %    \begin{macrocode}
 \newcommand{\setdiff}{-}
 \let\origsetminus\setminus
@@ -470,7 +470,7 @@ and the derived files           leindisc.sty
 % \subsection{Integer Division}
 %
 % \begin{macro}{\idiv}
-% \changes{unreleased}{2019/05/08}{Added this command}
+% \changes{v0.4.0}{2019/05/08}{Added this command}
 % Integer division.
 % \begin{example}
 %    \begin{examplecode}
