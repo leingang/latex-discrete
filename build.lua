@@ -7,6 +7,14 @@ unpackfiles = {"*.dtx"}
 
 
 function update_tag(file,content,tagname,tagdate)
+    -- This should go in a pre-tag hook, but there isn't one.
+    -- ensure that the tagname matches `v`x.y.z
+    assert(string.match(tagname,"^v%d+%.%d+%.%d+$"),
+        "invalid tag name. Use a literal v, then a semantic version number.")
+    -- Make sure the working directory is "clean"
+    assert(os.execute("git diff-index --quiet HEAD") == 0,
+        "Working directory dirty.  Commit changes and try again.")
+    -- TeX dates are in yyyy/mm/dd format.  tagdate is in yyyy-mm-dd format.
     tagdate_tex = string.gsub(tagdate,'-','/')
     if string.match(file, "%.dtx$") then
         content = string.gsub(content,
