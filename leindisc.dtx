@@ -138,6 +138,9 @@ and the derived files           leindisc.sty
     frameround=tttt
 }%
 
+\lstnewenvironment{lstterm}[1][]{%
+    \lstset{language=sh,gobble=2,basicstyle=\ttfamily}}
+{}
 
 %\usepackage{dtklogos}
 %\def\tikz/{\pkg{\protect{\normalfont Ti\textit{k}Z}}}
@@ -180,10 +183,12 @@ and the derived files           leindisc.sty
 % 
 % \section{Installation}
 % 
-% If you have the github repository, and a \TeX-live installation,
+% If you have the git repository, and a \TeX-live installation,
 % type this at the command line: 
 %
-% \verb|$ l3build install|
+% \begin{lstterm}
+% $ l3build install
+% \end{lstterm}  
 %
 % This should install the package in a place that your TeX installation
 % can find it and also that you can write to.  
@@ -486,15 +491,30 @@ and the derived files           leindisc.sty
 % 
 % \changes{v0.4.1}{2019/05/30}{Added checklist for version release}
 % \changes{v0.4.2}{2019/05/30}{Correct pseudoscript in versioning checklist}
+% \changes{unreleased}{2019/05/30}{Update versioning checklist}
 % Here is the versioning process:
 % 
 % \begin{enumerate}
-%   \item Edit and make changes.  Use the changes macro to record the dates,
+%   \item Edit and make changes.  Use the \cn{changes} macro to record the dates,
 % but keep the version name \texttt{unreleased}.
-%   \item Get the new version number and run \texttt{l3build tag \textit{newtag}}.
-%   \item Run \texttt{git add . ; git commit -m "Log changes for version \textit{newtag}"}
-%   \item Run \texttt{git tag -a -m "Tagging version \textit{newtag}" \textit{newtag}}
-%   \item Run \texttt{git push --tags}
+%   \item We use \href{https://semver.org/}{semantic versioning}.  
+% The version tag is a literal \texttt{v}
+% with the version number appended.  The most recent release at the time of this
+% writing is 0.4.2, so the tag is \texttt{v0.4.2}.
+% To get the current version, \texttt{git tag} is helpful.
+% If \texttt{newtag} is the tag name for the next version, run:
+% \begin{lstterm}
+% $ l3build tag newtag
+% \end{lstterm}
+% \texttt{l3build} will reject an invalid tag name, and won't tag a dirty working
+% directory.  Assuming those checks are passed, the source files will be updated
+% with the new version name and date.  This includes marking all \texttt{unreleased}
+% changes with the new version name.  The new files will be committed, and the
+% repository tagged.  
+%   \item To push changes to github, run
+% \begin{lstterm}
+% $ git push --tags
+% \end{lstterm}
 % \end{enumerate}
 %
 %% \bibliographystyle{abbrv}

@@ -11,7 +11,8 @@ function update_tag(file,content,tagname,tagdate)
     -- ensure that the tagname matches `v`x.y.z
     assert(string.match(tagname,"^v%d+%.%d+%.%d+$"),
         "invalid tag name. Use a literal v, then a semantic version number.")
-    -- Make sure the working directory is "clean"
+    -- Make sure the working directory is "clean".
+    -- See https://unix.stackexchange.com/a/394674/62853
     assert(os.execute("git diff-index --quiet HEAD") == 0,
         "Working directory dirty.  Commit changes and try again.")
     -- TeX dates are in yyyy/mm/dd format.  tagdate is in yyyy-mm-dd format.
