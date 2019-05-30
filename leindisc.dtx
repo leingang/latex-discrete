@@ -403,6 +403,19 @@ and the derived files           leindisc.sty
 %    \end{macrocode}
 % \end{macro}
 %
+% \begin{macro}{\Card}
+% \changes{unreleased}{2019/05/30}{Added this command}
+% Cardinality of a set
+% \begin{example}
+% \begin{examplecode}
+%    $\Card{\set{1,2,3}} = 3$
+% \end{examplecode}
+% \end{example}
+%    \begin{macrocode}
+\newcommand{\Card}[1]{\left|#1\right|}
+%    \end{macrocode}
+% \end{macro}
+%
 %
 % \subsection{Proof}
 %
