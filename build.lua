@@ -1,4 +1,5 @@
--- Build configuration for leintex
+-- Build configuration for leindisc
+-- Matthew Leingang, 2019-05-29
 
 module = "leindisc"
 
