@@ -480,8 +480,21 @@ and the derived files           leindisc.sty
 %    \begin{macrocode}
 \providecommand{\idiv}{\mathbin{\text{div}}}
 %    \end{macrocode}
-
 % \end{macro}
+%
+% \section{Developer Notes}
+% 
+% \changes{unreleased}{2019/05/30}{Added checklist for version release}
+% Here is the versioning process:
+% 
+% \begin{enumerate}
+%   \item Edit and make changes.  Use the changes macro to record the dates,
+% but keep the version name \texttt{unreleased}.
+%   \item Get the new version number and run \texttt{l3build tag \textit{newtag}}.
+%   \item Run \texttt{git add . ; git commit -m "Log changes for version \textit{newtag}"}
+%   \item Run \texttt{git tag -a -m "Tagging version \textit{newtag}"}
+%   \item Run \texttt{git push --tags}
+% \end{enumerate}
 %
 %% \bibliographystyle{abbrv}
 %% \bibliography{\jobname}
