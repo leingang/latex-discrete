@@ -30,6 +30,14 @@ function update_tag(file,content,tagname,tagdate)
 end
 
 
+function tag_hook(tagname,tagdate)
+    -- handle version control
+    os.execute("git add .")
+    os.execute("git commit -m \"Log changes for version " .. tagname .. "\"")
+    return os.execute("git tag -a -m \"Tag version " .. tagname .. "\" " .. tagname)
+end
+
+
 kpse.set_program_name("texlua")
 if not release_date then
    dofile(kpse.lookup("l3build.lua"))
