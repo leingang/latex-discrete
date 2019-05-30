@@ -342,36 +342,48 @@ and the derived files           leindisc.sty
 % \end{macro}
 % \end{macro}
 %
-% \begin{macro}{\union}
-% \begin{macro}{\intersect}
-% \begin{macro}{\setdiff}
-% \begin{macro}{\symdiff}
-% The union, intersection, set difference, and symmetric difference operations.
 % \begin{example}
 % \begin{examplecode}
 %    $A \symdiff B = (A \setdiff B) \union (B \setdiff A) 
 %    = (A \union B) \setdiff (B \intersect A)$
 % \end{examplecode}
 % \end{example}
+% \begin{macro}{\union}
+% The union of two sets.
 %    \begin{macrocode}
-\providecommand{\intersect}{\cap}
-\providecommand{\intersect}{\cap}
 \providecommand{\union}{\cup}
-\newcommand{\setdiff}{-}
-\newcommand{\symdiff}{\mathbin{\triangle}}
 %    \end{macrocode}
 % \end{macro}
-% \end{macro}
-% \end{macro}
+%
+% \begin{macro}{\intersect}
+% The intersection of two sets.  
+%    \begin{macrocode}
+\providecommand{\intersect}{\cap}
+%    \end{macrocode}
 % \end{macro}
 %
+% \begin{macro}{\setdiff}
+% The difference of two sets.  $A \setdiff B$ contains everying in $A$
+% that is not in $B$.
 % Scheinermman uses the minus sign for set difference.
 % I prefer the backslash but I don't want to confuse students (more).
 % \changes{unreleased}{2019/03/28}{Alias \cn{setminus} to \cn{setdiff}}
 %    \begin{macrocode}
+\newcommand{\setdiff}{-}
 \let\origsetminus\setminus
 \renewcommand{\setminus}{\setdiff}
 %    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\symdiff}
+% The symmetric difference of two sets.  
+% $A \symdiff B$ contains everything that is in $A$, or in $B$,
+% but not both.
+%    \begin{macrocode}
+\newcommand{\symdiff}{\mathbin{\triangle}}
+%    \end{macrocode}
+% \end{macro}
+%
 %
 %
 % \begin{macro}{\PowerSet}
@@ -410,21 +422,21 @@ and the derived files           leindisc.sty
 % \subsection{Functions}
 %
 % \begin{macro}{\comp}
-% \changes{v0.3}{2018/11/19}{Added this macro}
+% \changes{v0.3}{2018/11/19}{Added this command}
 % Composition of functions.
 %    \begin{macrocode}
 \providecommand{\comp}{\mathrel{\raisebox{0.175ex}{$\scriptstyle\circ$}}}
 %    \end{macrocode}
 % \end{macro}
 % \begin{macro}{\from}
-% \changes{v0.3}{2018/11/19}{Added this macro}
+% \changes{v0.3}{2018/11/19}{Added this command}
 % Semantic replacement for \cn{colon} between a function's name and its domain.
 %    \begin{macrocode}
 \providecommand{\from}{\colon}
 %    \end{macrocode}
 % \end{macro}
 % \begin{macro}{\IdentityFunction}
-% \changes{v0.3}{2018/11/19}{Added this macro}
+% \changes{v0.3}{2018/11/19}{Added this command}
 % The identity function on a set.
 % The optional argument gives the name of the set.
 %    \begin{macrocode}
@@ -458,7 +470,7 @@ and the derived files           leindisc.sty
 % \subsection{Integer Division}
 %
 % \begin{macro}{\idiv}
-% \changes{unreleased}{2019/05/08}{Added this macro}
+% \changes{unreleased}{2019/05/08}{Added this command}
 % Integer division.
 % \begin{example}
 %    \begin{examplecode}
