@@ -439,6 +439,19 @@ and the derived files           leindisc.sty
 %
 % \subsection{Functions}
 %
+% \begin{macro}{\dom}
+% \changes{unreleased}{2019/05/30}{Added this command}
+% The domain of a function.
+% \begin{example}
+% \begin{examplecode}
+%    $\dom f = \set{1,2,3}$
+% \end{examplecode}
+% \end{example}
+%    \begin{macrocode}
+\newcommand{\dom}[1]{\operatorname{dom}#1}
+%    \end{macrocode}
+% \end{macro}
+%
 % \begin{macro}{\comp}
 % \changes{v0.3}{2018/11/19}{Added this command}
 % Composition of functions.
