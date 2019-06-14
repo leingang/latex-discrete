@@ -1,5 +1,5 @@
-leindisc.pdf
-leindisc.sty
+discrete.pdf
+discrete.sty
 build/*
 *.aux
 *.bib
@@ -13,5 +13,5 @@ build/*
 *.exa
 *.ilg
 *.ind
-leindisc.synctex.gz
+discrete.synctex.gz
 .terminal.term-0.term

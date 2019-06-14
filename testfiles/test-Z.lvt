@@ -1,6 +1,6 @@
 \input regression-test.tex
 \documentclass{article}
-\usepackage{leindisc}
+\usepackage{discrete}
 \begin{document}
 \setbox0=\hbox{$\Z$}
 \START

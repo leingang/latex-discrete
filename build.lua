@@ -1,7 +1,7 @@
--- Build configuration for leindisc
+-- Build configuration for discrete
 -- Matthew Leingang, 2019-05-29
 
-module = "leindisc"
+module = "discrete"
 
 unpackfiles = {"*.dtx"}
 
@@ -19,8 +19,8 @@ function update_tag(file,content,tagname,tagdate)
     tagdate_tex = string.gsub(tagdate,'-','/')
     if string.match(file, "%.dtx$") then
         content = string.gsub(content,
-            "\n\\ProvidesPackage{leindisc}%[%d%d%d%d/%d%d/%d%d v.- ",
-            "\n\\ProvidesPackage{leindisc}[" .. tagdate_tex .. " " .. tagname .. " "
+            "\n\\ProvidesPackage{discrete}%[%d%d%d%d/%d%d/%d%d v.- ",
+            "\n\\ProvidesPackage{discrete}[" .. tagdate_tex .. " " .. tagname .. " "
         )
         content = string.gsub(content,
             "\n%% \\changes{unreleased}",

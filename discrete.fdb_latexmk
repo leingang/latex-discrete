@@ -1,0 +1,29 @@
+# Fdb version 3
+["bibtex discrete"] 1560470421 "discrete.aux" "discrete.bbl" "discrete" 1560470421
+  "/usr/local/texlive/2018/texmf-dist/bibtex/bst/base/abbrv.bst" 1480098433 20329 b5fed53e10044d0f8112183785c759b1 ""
+  "discrete.aux" 1560470350 3335 8b1ad48c976d39edc5a06cfd7fe66f09 ""
+  "discrete.bib" 1560470347 429 4625d1e3d0e3654873368c131340d19a ""
+  (generated)
+  "discrete.bbl"
+  "discrete.blg"
+["latex"] 1560470421 "discrete.pdf" "discrete.dvi" "discrete" 1560470421
+  "/usr/local/texlive/2018/texmf-dist/web2c/texmf.cnf" 1522066949 33362 cf75436e19743e94a92a6b1b9183c434 ""
+  "/usr/local/texlive/2018/texmf-var/web2c/pdftex/latex.fmt" 1539960182 4222410 ee769059963a675056babc4816f1ecbb ""
+  "/usr/local/texlive/2018/texmf.cnf" 1523934483 577 0b39adfd7c93507ff20c9c14c2f1a33f ""
+  "discrete.aux" 1560470350 3335 8b1ad48c976d39edc5a06cfd7fe66f09 ""
+  "discrete.pdf" 1560470391 313846 c0682f74a9f66c0a4cf0deeeb29f2423 "xdvipdfmx"
+  (generated)
+  "discrete.exa"
+  "discrete.aux"
+  "discrete.dvi"
+  "discrete.log"
+  "discrete.sty"
+["makeindex discrete.idx"] 1560470421 "discrete.idx" "discrete.ind" "discrete" 1560470421
+  "discrete.idx" 1560470350 5874 342c67fb8aa960cad73bd1421804602a ""
+  (generated)
+  "discrete.ilg"
+  "discrete.ind"
+["xdvipdfmx"] 0 "discrete.xdv" "discrete.pdf" "discrete" 1560470421
+  "discrete.xdv" 0 -1 0 ""
+  (generated)
+  "discrete.pdf"

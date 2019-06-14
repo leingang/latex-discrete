@@ -1,6 +1,6 @@
 \input regression-test.tex
 \documentclass{article}
-\usepackage{leindisc}
+\usepackage{discrete}
 \begin{document}
 \START
 If $f \from \Z \to \Z$ is invertible, 

@@ -1,4 +1,4 @@
-# leindisc
+# discrete
 LaTeX package for typesetting discrete math documents
 
 ## Installation
@@ -23,4 +23,4 @@ it and install the documentation separately:
 
 To view the documentation, execute:
 
-    $ texdoc leindisc
+    $ texdoc discrete
