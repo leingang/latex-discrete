@@ -13,5 +13,9 @@ build/*
 *.exa
 *.ilg
 *.ind
+*.bbl
+*.blg
+*.fdb_latex
+*.fls
 discrete.synctex.gz
 .terminal.term-0.term

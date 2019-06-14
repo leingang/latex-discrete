@@ -1,6 +1,0 @@
-PWD /Users/matthew/github/latex-discrete
-INPUT /usr/local/texlive/2018/texmf.cnf
-INPUT /usr/local/texlive/2018/texmf-dist/web2c/texmf.cnf
-INPUT /usr/local/texlive/2018/texmf-var/web2c/pdftex/latex.fmt
-INPUT discrete.pdf
-OUTPUT discrete.log
