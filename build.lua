@@ -5,6 +5,11 @@ module = "discrete"
 
 unpackfiles = {"*.dtx"}
 
+-- We are not going to check the "luatex" engine because all tests seem to fail
+-- with very minor differences (like, a single space in a \kern line)
+-- Could also save a separate tlg file with the -e switch to save
+-- checkengines = {"pdftex", "xetex"}
+
 
 function update_tag(file,content,tagname,tagdate)
     -- This should go in a pre-tag hook, but there isn't one.
