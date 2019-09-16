@@ -5,10 +5,20 @@ module = "discrete"
 
 unpackfiles = {"*.dtx"}
 
--- We are not going to check the "luatex" engine because all tests seem to fail
--- with very minor differences (like, a single space in a \kern line)
--- Could also save a separate tlg file with the -e switch to save
--- checkengines = {"pdftex", "xetex"}
+
+-- The "luatex" engine produces some very minor differences (like, a single
+-- space in a \kern line).  One way around that is to disable the luatex engine:
+-- (uncomment to activate)
+--
+--     checkengines = {"pdftex", "xetex"}
+--
+-- Another way is to save test logs twice (on command line)
+--
+--     $ l3build save test
+--     $ l3build save -e luatex test
+--
+-- This creates both "test.tlg" and "test.luatex.ltg" in testfiles.
+-- Engine-specific tlg files are only compared with the specific engines.
 
 
 function update_tag(file,content,tagname,tagdate)

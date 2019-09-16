@@ -1,0 +1,13 @@
+\input regression-test.tex
+\documentclass{article}
+\usepackage{expl3}
+\usepackage{discrete}
+\begin{document}
+\START
+\ExplSyntaxOn
+\box_new:N \l_tmp_box
+\hbox_set:Nn \l_tmp_box {$\im f$}
+\box_show:N \l_tmp_box
+\box_use:N \l_tmp_box
+\ExplSyntaxOff
+\end{document}
