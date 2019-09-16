@@ -463,6 +463,14 @@ and the derived files           discrete.sty
 % \begin{macro}{\im}
 % \changes{v0.5.0}{2019/05/30}{Added this command}
 % The image of a function.
+%
+% FIXME: This is also defined in \pkg{leintex2e}.  Add a package option that,
+% if set, and the command already exists and does something else, overwrites.
+%
+% Interface? [overwrite-im,overwrite-setst,...]
+% This allows for unsetting by setting overwrite-im=no later.  OTOH, one key
+% per command.
+%
 % \begin{example}
 % \begin{examplecode}
 %    $\im f = \set{4,5,6}$
