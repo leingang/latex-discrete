@@ -1,0 +1,24 @@
+\input{regression-test}
+% Test discrete.sty constant commands
+% Syntax inspired by https://github.com/josephwright/siunitx/blob/master/testfiles/siunitx-abbreviation.lvt
+\RequirePackage{expl3}
+\RequirePackage{discrete}
+\START
+\ExplSyntaxOn
+
+\OMIT
+\cs_set_protected:Npn \test:n #1
+  {
+    \exp_args:NNf \tl_set:Nn \l_tmpa_tl {#1}
+    \tl_show:N \l_tmpa_tl
+  }
+\TIMO
+
+\TEST { Number~sets }
+  {
+    \clist_map_inline:nn 
+      { \R, \Z, \N, \Q }
+      { \test:n {#1} }
+  }
+
+\END

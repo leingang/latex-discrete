@@ -1,9 +1,0 @@
-\input regression-test.tex
-\documentclass{article}
-\usepackage{discrete}
-\begin{document}
-\setbox0=\hbox{$\N$}
-\START
-\showbox0
-\END
-\end{document}

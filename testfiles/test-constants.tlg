@@ -1,0 +1,18 @@
+This is a generated file for the l3build validation system.
+Don't change this file in any respect.
+============================================================
+TEST 1: Number sets
+============================================================
+> \l_tmpa_tl=\protect \mathbb  {R}.
+<recently read> }
+l. ...  }
+> \l_tmpa_tl=\protect \mathbb  {Z}.
+<recently read> }
+l. ...  }
+> \l_tmpa_tl=\protect \mathbb  {N}.
+<recently read> }
+l. ...  }
+> \l_tmpa_tl=\protect \mathbb  {Q}.
+<recently read> }
+l. ...  }
+============================================================
