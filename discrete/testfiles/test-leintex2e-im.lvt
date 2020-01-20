@@ -1,0 +1,20 @@
+\input regression-test.tex
+\documentclass{article}
+\usepackage{expl3}
+% WIP
+%
+% This was to test whether loading discrete after leintex2e complains about
+% redefining a macro (to be the same thing) But it seems batchmode is turned on
+% somplace because latex runs without stopping, even in this case where it
+% should.
+\usepackage{leintex2e}
+\usepackage{discrete}
+\begin{document}
+\START
+\ExplSyntaxOn
+\box_new:N \l_tmp_box
+\hbox_set:Nn \l_tmp_box {$\im f$}
+\box_show:N \l_tmp_box
+\box_use:N \l_tmp_box
+\ExplSyntaxOff
+\end{document}

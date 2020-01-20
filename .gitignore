@@ -19,3 +19,7 @@ build/*
 *.fls
 discrete.synctex.gz
 .terminal.term-0.term
+discrete/.DS_Store
+tikzlibrarydiscrete/tikzlibrarydiscrete.pdf
+tikzlibrarydiscrete/tikzlibrarydiscrete.code.tex
+tikzlibrarydiscrete/tikzlibrarydiscrete.synctex.gz

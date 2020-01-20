@@ -1,0 +1,230 @@
+% \iffalse meta-comment
+% http://www.texdev.net/2009/10/06/a-model-dtx-file/
+% !TEX program  = xelatex
+%<*internal>
+\iffalse
+%</internal>
+%<*internal>
+\fi
+\def\nameofplainTeX{plain}
+\ifx\fmtname\nameofplainTeX\else
+  \expandafter\begingroup
+\fi
+%</internal>
+%<*install>
+\input docstrip.tex
+\keepsilent
+\askforoverwritefalse
+\preamble
+-----------------------------------------------------------------------------
+A TikZ library for discrete math
+E-mail: leingang@nyu.edu
+All rights reserved.
+-----------------------------------------------------------------------------
+
+\endpreamble
+\postamble
+
+Copyright (C) 2020 by Matthew Leingang <leingang@nyu.edu>
+
+This work consists of the file  tikzlibrarydiscrete.dtx
+and the derived files           tikzlibrarydiscrete.code.tex
+                                tikzlibrarydiscrete.ins
+                                tikzlibrarydiscrete.pdf
+
+\endpostamble
+%<install>\UseTDS
+\usedir{tex/latex}
+\generate{
+  \file{\jobname.code.tex}{\from{\jobname.dtx}{library}}
+}
+%</install>
+%<install>\endbatchfile
+%<*internal>
+\generate{
+  \file{\jobname.code.tex}{\from{\jobname.dtx}{library}}
+  \file{\jobname.ins}{\from{\jobname.dtx}{install}}
+}
+\nopreamble
+\nopostamble
+\generate{
+  \file{\jobname.bib}{\from{\jobname.dtx}{bibliography}}
+}
+\ifx\fmtname\nameofplainTeX
+  \expandafter\endbatchfile
+\else
+  \expandafter\endgroup
+\fi
+%</internal>
+%<*driver>
+\documentclass{amsdtx}
+% \cls{amsdtx} derives from \cls{book}, which make the bibliography a chapter rather than a section.
+% So I need to re-define it.
+\makeatletter
+\newcommand{\refname}{Bibliography}
+\renewenvironment{thebibliography}[1]
+     {\section*{\refname}%
+      \@mkboth{\MakeUppercase\refname}{\MakeUppercase\refname}%
+      \list{\@biblabel{\@arabic\c@enumiv}}%
+           {\settowidth\labelwidth{\@biblabel{#1}}%
+            \leftmargin\labelwidth
+            \advance\leftmargin\labelsep
+            \@openbib@code
+            \usecounter{enumiv}%
+            \let\p@enumiv\@empty
+            \renewcommand\theenumiv{\@arabic\c@enumiv}}%
+      \sloppy
+      \clubpenalty4000
+      \@clubpenalty \clubpenalty
+      \widowpenalty4000%
+      \sfcode`\.\@m}
+     {\def\@noitemerr
+       {\@latex@warning{Empty `thebibliography' environment}}%
+      \endlist}
+\makeatother
+\usepackage[letterpaper]{geometry}
+\usepackage[numbered]{hypdoc}
+
+% Code examples (issue #2)
+\usepackage{ydoc-expl}
+\usepackage[most]{tcolorbox}
+\usepackage{etoolbox}
+\lstset{backgroundcolor=\color{blue!10}}
+\input{svgnam.def}
+% Use a dogeared color box like tcolorbox's marker style <http://tex.stackexchange.com/a/307436/1402>
+\newtcolorbox{marker}[1][]{enhanced,
+    before skip=2mm,after skip=3mm,
+    boxrule=0.4pt,left=5mm,right=2mm,top=1mm,bottom=1mm,
+    colframe=LightGoldenrodYellow!50!black,
+    colback=LightGoldenrodYellow,
+    width=1cm+\wd\exampleresultbox,
+    halign=center,
+    sharp corners,rounded corners=northeast,arc is angular,arc=3mm,
+    underlay={%
+    \path[fill=tcbcol@back!80!black]
+        ([xshift=-3mm]interior.north east)--++(0,-0.3)--++(0.3,0);
+    \path[draw=tcbcol@frame,shorten <=-0.05mm,shorten >=-0.05mm]
+        ([xshift=-3mm]interior.north east)--++(0,-0.3)--++(0.3,0);
+    },
+    drop fuzzy shadow,#1}
+\newcommand{\styleresultbox}[1]{%
+    \begin{marker}
+    \mbox{#1}
+    \end{marker}
+}
+
+% There are two \cn{fbox}es that need to be patched.
+\patchcmd{\PrintExample}{\fbox}{\styleresultbox}{}{}
+\patchcmd{\PrintExample}{\fbox}{\styleresultbox}{}{}
+% I want to add to the style but don't know how without
+% copying
+\lstdefinestyle{examplecode}{%
+    language=[latex]tex,
+    basicstyle=\ttfamily,
+    columns=fullflexible,
+    numbers=left,
+    firstnumber=1,
+    numberstyle=\tiny\color{gray}\sffamily,
+    numbersep=5pt,
+    breaklines,prebreak={\mbox{\tiny$\swarrow$}},
+    commentstyle=\color{black!60},
+    frame=trbl,
+    frameround=tttt
+}%
+
+\lstdefinestyle{terminal}{
+  language=sh,basicstyle=\ttfamily,emphstyle={\slshape}
+}
+\lstnewenvironment{lstterm}[1][]{%
+    \lstset{
+      style=terminal,
+      gobble=2,
+      #1
+    }}
+{}
+
+%\usepackage{dtklogos}
+\def\tikz/{\pkg{\protect{\normalfont Ti\textit{k}Z}}}
+\def\pgf/{\pkg{\protect{\normalfont\textsc{pgf}}}}
+%\def\pgfplots/{\pkg{\protect{\normalfont\textsc{pgfplots}}}}
+\def\xetex/{\protect{\XeTeX}}
+\makeatletter
+\DeclareRobustCommand{\tk}{\category@index{TikZ key}}
+\makeatother
+\EnableCrossrefs
+\CodelineIndex
+\RecordChanges
+\begin{document}
+  \DocInput{\jobname.dtx}
+\end{document}
+%</driver>
+% \fi
+%
+%% \GetFileInfo{discrete.sty}
+%
+% \title{Macros for typesetting discrete math documents}
+% \author{Matthew Leingang\thanks{Email: leingang@nyu.edu}}
+%% \date{Released \filedate\thanks{Version: \fileversion}}
+% 
+% \maketitle
+% \tableofcontents
+% \changes{unreleased}{2020/01/19}{Added this library}
+% \StopEventually{^^A
+%   \PrintChanges
+%   \PrintIndex
+% }
+%
+%
+% \section{Introduction}
+%
+% This \tikz/ library is for typesetting documents for discrete mathematics.
+% 
+% \section{Installation}
+% 
+% If you have the git repository, and a \TeX-live installation,
+% type this at the command line: 
+%
+% \begin{lstterm}
+% $ l3build install --full
+% \end{lstterm}  
+%
+% This should install the package in a place that your TeX installation
+% can find it and also that you can write to.  The \texttt{--full} 
+% option also installs documentation.  
+%
+% \section{Usage/Implementation}
+%
+%    \begin{macrocode}
+%<*library>
+%    \end{macrocode}
+%
+% \subsection{Preloading libraries}
+%
+%    \begin{macrocode}
+\usetikzlibrary{decorations}
+\usetikzlibrary{patterns}
+%    \end{macrocode}
+%
+% \subsection{Graphs}
+%
+%    \begin{macrocode}
+\tikzset{simple graph/.style={
+    every edge/.append style={thick},
+    dot/.style={draw,circle,inner sep=0pt,minimum width=1ex},
+    vertex/.style={dot},
+}}
+%    \end{macrocode}
+%
+%
+%    \begin{macrocode}
+%</library>
+%    \end{macrocode}
+%
+%
+%% \bibliographystyle{abbrv}
+%% \bibliography{\jobname}
+%
+% \Finale
+% \endinput
+%<*bibliography>
+%</bibliography>

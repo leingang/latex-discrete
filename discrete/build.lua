@@ -1,8 +1,29 @@
--- Build configuration for the discrete bundle
+-- Build configuration for discrete.sty
 -- (C) 2019-2020 Matthew Leingang
 
-bundle = "discrete"
-modules = { "discrete", "tikzlibrarydiscrete" }
+-- We don't need an extra directory in the path because there is only
+-- one package in this bundle
+bundle = ""
+module = "discrete"
+maindir = ".."
+
+unpackfiles = { "*.dtx" }
+
+
+
+-- The "luatex" engine produces some very minor differences (like, a single
+-- space in a \kern line).  One way around that is to disable the luatex engine:
+-- (uncomment to activate)
+--
+--     checkengines = {"pdftex", "xetex"}
+--
+-- Another way is to save test logs twice (on command line)
+--
+--     $ l3build save test
+--     $ l3build save -e luatex test
+--
+-- This creates both "test.tlg" and "test.luatex.ltg" in testfiles.
+-- Engine-specific tlg files are only compared with the specific engines.
 
 
 function update_tag(file,content,tagname,tagdate)
