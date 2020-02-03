@@ -179,6 +179,7 @@ and the derived files           discrete.sty
 % \changes{v0.2}{2018/10/10}{Macros added to facilitate set theory and boolean algebra}
 % \changes{v0.5.1}{2019/05/31}{Improved documentation}
 % \changes{v0.6.0}{2019/06/13}{Changed package name to \pkg{discrete}}
+% \changes{unreleased}{2020/01/21}{Moved end-of-package guard to end of package code}
 % \StopEventually{^^A
 %   \PrintChanges
 %   \PrintIndex
@@ -281,8 +282,9 @@ and the derived files           discrete.sty
 % \end{example}
 %
 %    \begin{macrocode}
-\newcommand{\ltrue}{\textsc{true}}
-\newcommand{\lfalse}{\textsc{false}}
+\providecommand{\mathsc}[1]{{\normalfont\textsc{#1}}}
+\newcommand{\ltrue}{\mathsc{true}}
+\newcommand{\lfalse}{\mathsc{false}}
 %    \end{macrocode}
 % \end{macro}
 % \end{macro}
@@ -292,6 +294,8 @@ and the derived files           discrete.sty
 % \changes{v0.4.0}{2019/03/10}{Added \cn{lnand} and \cn{lxor}}
 % \begin{macro}{\limplies}
 % \begin{macro}{\lseilpmi}
+% \begin{macro}{\lisimpliedby}
+% \changes{unreleased}{2020/02/03}{Added \cn{isimpliedby} as a synonym to the (hard to type) \cn{lseilpmi}}
 % \begin{macro}{\liff}
 % Boolean algebra operations for implies, is-implied-by, 
 % and if-and-only-if.
@@ -310,10 +314,12 @@ and the derived files           discrete.sty
 %    \begin{macrocode}
 \newcommand{\limplies}{\rightarrow}
 \newcommand{\lseilpmi}{\leftarrow}
+\newcommand{\lisimpliedby}{\leftarrow}
 \newcommand{\liff}{\leftrightarrow}
 \newcommand{\lnand}{\barwedge}
 \newcommand{\lxor}{\veebar}
 %    \end{macrocode}
+% \end{macro}
 % \end{macro}
 % \end{macro}
 % \end{macro}
@@ -440,9 +446,6 @@ and the derived files           discrete.sty
 \newcommand{\raa}{$\Rightarrow\Leftarrow$}
 %    \end{macrocode}
 % \end{macro}
-%    \begin{macrocode}
-%</package>
-%    \end{macrocode}
 %
 %
 % \subsection{Functions}
@@ -542,6 +545,13 @@ and the derived files           discrete.sty
 \providecommand{\idiv}{\mathbin{\text{div}}}
 %    \end{macrocode}
 % \end{macro}
+%
+% That's the end!
+%
+%    \begin{macrocode}
+%</package>
+%    \end{macrocode}
+%
 %
 % \section{Developer Notes}
 % 
