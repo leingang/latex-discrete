@@ -1,0 +1,24 @@
+This is a generated file for the l3build validation system.
+Don't change this file in any respect.
+\l_tmp_box=\box...
+LaTeX Font Info:    Trying to load font information for U+msa on input line ....
+LaTeX Font Info:    Trying to load font information for U+msb on input line ....
+> \box...=
+\hbox(7.5+2.5)x26.47217
+.\mathon
+.\OML/cmm/m/it/10 E
+.\kern0.57637
+.\glue(\thinmuskip) 1.66663
+.\hbox(7.5+2.5)x16.84723
+..\hbox(7.5+2.5)x3.8889
+...\OT1/cmr/m/n/10 (
+..\OML/cmm/m/it/10 X
+..\kern0.7847
+..\hbox(7.5+2.5)x3.8889
+...\OT1/cmr/m/n/10 )
+.\mathoff
+! OK.
+<argument> \l_tmp_box 
+l. ...\box_show:N \l_tmp_box
+[1
+] (test-EV.aux)
