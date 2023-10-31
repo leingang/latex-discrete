@@ -25,7 +25,7 @@ All rights reserved.
 \endpreamble
 \postamble
 
-Copyright (C) 2020 by Matthew Leingang <leingang@nyu.edu>
+Copyright (C) 2020-2023 by Matthew Leingang <leingang@nyu.edu>
 
 This work consists of the file  tikzlibrarydiscrete.dtx
 and the derived files           tikzlibrarydiscrete.code.tex
@@ -160,9 +160,9 @@ and the derived files           tikzlibrarydiscrete.code.tex
 %</driver>
 % \fi
 %
-%% \GetFileInfo{discrete.sty}
+%% \GetFileInfo{tikzlibrarydiscrete.code.tex}
 %
-% \title{Macros for typesetting discrete math documents}
+% \title{TikZ macros for typesetting discrete math documents}
 % \author{Matthew Leingang\thanks{Email: leingang@nyu.edu}}
 %% \date{Released \filedate\thanks{Version: \fileversion}}
 % 
@@ -205,14 +205,35 @@ and the derived files           tikzlibrarydiscrete.code.tex
 \usetikzlibrary{patterns}
 %    \end{macrocode}
 %
+% This library is for for drawing blobs around finite sets.
+%    \begin{macrocode}
+\usetikzlibrary{fit,shapes.geometric}% 
+%    \end{macrocode}
+% This library is for drawing sets as rows or columns of dots.
+%    \begin{macrocode}
+\usetikzlibrary{chains}
+%    \end{macrocode}
+%
 % \subsection{Graphs}
 %
+% Simple graphs are undirected.
 %    \begin{macrocode}
 \tikzset{simple graph/.style={
-    every edge/.append style={thick},
     dot/.style={draw,circle,inner sep=0pt,minimum width=1ex},
     vertex/.style={dot},
+    every edge/.append style={draw,thick},
 }}
+%    \end{macrocode}
+%
+% Directed graphs (with arrows) for functions and relations.
+%    \begin{macrocode}
+\tikzset{
+    directed graph/.style={
+        dot/.style={circle,fill=primary,inner sep=0pt,minimum width=1ex},
+        arrow/.style={draw,-stealth,thick},
+        every edge/.style={arrow}
+    }
+}
 %    \end{macrocode}
 %
 %
