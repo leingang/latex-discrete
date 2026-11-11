@@ -263,6 +263,50 @@ and the derived files           discrete.sty
 \newcommand{\ndivides}{\mathrel{\nmid}}
 %    \end{macrocode}
 % \end{macro}
+%
+% \begin{macro}{\discrete@raisedcancel}
+% \changes{unreleased}{2026/11/11}{Added}
+% Internal helper: overstrike a slightly raised slash on a symbol, at the
+% current math style.  Use it with \cn{mathpalette}.
+% See \url{https://tex.stackexchange.com/a/736636/1402}.
+%    \begin{macrocode}
+\newcommand{\discrete@raisedcancel}[2]{%
+  \begingroup
+  \sbox\z@{\raisebox{0.1\height}{$\m@th#1/$}}%
+  \vphantom{\usebox\z@}%
+  \ooalign{\hidewidth\usebox\z@\hidewidth\cr$\m@th#1#2$\cr}%
+  \endgroup
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\negrel}
+% \changes{unreleased}{2026/11/11}{Added}
+% Negate an arbitrary relation symbol by striking it through with a slash.
+% We use the raised-slash overstrike on every engine.
+% egreg (\url{https://tex.stackexchange.com/q/736635/1402}) suggests
+% \cn{notaccent} from \env{unicode-math} under Xe\LaTeX, but with Latin Modern
+% Math that places the slash noticeably too high, so we don't.
+%    \begin{macrocode}
+\newcommand{\negrel}[1]{\mathrel{\mathpalette\discrete@raisedcancel{#1}}}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\relR}
+% \begin{macro}{\notrelR}
+% \changes{unreleased}{2026/11/11}{Added}
+% A generic relation named $R$, and its negation.
+% \begin{example}
+%    \begin{examplecode}
+%        $a \relR b$, $a \notrelR b$, $x \negrel{T} y$
+%    \end{examplecode}
+% \end{example}
+%    \begin{macrocode}
+\newcommand{\relR}{\mathrel{\mathop R}}
+\newcommand{\notrelR}{\negrel{\relR}}
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
   
 % \subsection{Boolean algebra}
 %

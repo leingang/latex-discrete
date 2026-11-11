@@ -1,0 +1,9 @@
+\input regression-test.tex
+\documentclass{article}
+\usepackage{discrete}
+\begin{document}
+\START
+$a \relR b$, $a \notrelR b$, $x \negrel{T} y$, $\scriptstyle a \notrelR b$
+\END
+\end{document}
+\endinput
