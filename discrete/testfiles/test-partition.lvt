@@ -1,0 +1,10 @@
+\input regression-test.tex
+\documentclass{article}
+\usepackage{discrete}
+\begin{document}
+\START
+\TYPE{\meaning\Partition}
+$\Partition{P} = \set{\set{1,2},\set{3}}$
+\END
+\end{document}
+\endinput

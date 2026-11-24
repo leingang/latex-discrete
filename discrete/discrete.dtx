@@ -474,6 +474,20 @@ and the derived files           discrete.sty
 %    \end{macrocode}
 % \end{macro}
 %
+% \begin{macro}{\Partition}
+% \changes{unreleased}{2026/11/24}{Added}
+% A partition of a set, typeset as a calligraphic letter.
+% This was previously defined locally in several MATH-UA 120 lecture files.
+% \begin{example}
+% \begin{examplecode}
+%    $\Partition{P} = \set{\set{1,2},\set{3}}$
+% \end{examplecode}
+% \end{example}
+%    \begin{macrocode}
+\newcommand{\Partition}[1]{\mathcal{#1}}
+%    \end{macrocode}
+% \end{macro}
+%
 %
 % \subsection{Proof}
 %
